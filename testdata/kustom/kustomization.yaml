@@ -1,0 +1,3 @@
+resources:
+  - res.yaml
+namespace: staging

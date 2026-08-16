@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: payments
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: api}
+  template:
+    metadata:
+      labels: {app: api}
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/acme/api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_PASSWORD
+              value: "s3cr3t-in-plaintext"
+            - name: LOG_LEVEL
+              value: "info"
+          securityContext:
+            privileged: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: payments
+spec:
+  type: ClusterIP
+  selector: {app: api}
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api
+  namespace: payments
+spec:
+  rules:
+    - host: api.acme.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api
+                port: {number: 80}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: legacy-api
+spec:
+  rules:
+    - host: old.acme.com
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-db
+  namespace: payments
+type: Opaque
+data:
+  password: czNjcjN0
+  username: YWRtaW4=
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: api-admin
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
