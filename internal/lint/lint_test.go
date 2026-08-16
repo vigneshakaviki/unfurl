@@ -3,7 +3,7 @@ package lint
 import (
 	"testing"
 
-	"github.com/vignesh/unfurl/internal/render"
+	"github.com/vigneshakaviki/unfurl/internal/render"
 )
 
 // findByRule returns the findings emitted by a given rule ID.

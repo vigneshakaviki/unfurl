@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/vignesh/unfurl/internal/model"
+	"github.com/vigneshakaviki/unfurl/internal/model"
 	"gopkg.in/yaml.v3"
 )
 

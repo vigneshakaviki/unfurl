@@ -1,4 +1,4 @@
-module github.com/vignesh/unfurl
+module github.com/vigneshakaviki/unfurl
 
 go 1.26.5
 

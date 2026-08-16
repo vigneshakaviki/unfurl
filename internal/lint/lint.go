@@ -7,7 +7,7 @@ package lint
 import (
 	"sort"
 
-	"github.com/vignesh/unfurl/internal/model"
+	"github.com/vigneshakaviki/unfurl/internal/model"
 )
 
 // Severity ranks a finding.

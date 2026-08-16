@@ -50,7 +50,7 @@ limits, on a single replica, pulling `:latest`.
 brew install unfurl
 
 # Go
-go install github.com/vignesh/unfurl@latest
+go install github.com/vigneshakaviki/unfurl@latest
 
 # As a kubectl plugin — symlink onto PATH as `kubectl-unfurl`, then:
 kubectl unfurl ./charts/api

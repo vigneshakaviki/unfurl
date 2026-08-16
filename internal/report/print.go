@@ -6,9 +6,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/vignesh/unfurl/internal/lint"
-	"github.com/vignesh/unfurl/internal/model"
-	"github.com/vignesh/unfurl/internal/render"
+	"github.com/vigneshakaviki/unfurl/internal/lint"
+	"github.com/vigneshakaviki/unfurl/internal/model"
+	"github.com/vigneshakaviki/unfurl/internal/render"
 )
 
 // ANSI helpers. Disabled by setting color=false (no-tty / --no-color / NO_COLOR).

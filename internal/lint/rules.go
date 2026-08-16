@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/vignesh/unfurl/internal/model"
+	"github.com/vigneshakaviki/unfurl/internal/model"
 )
 
 // isWorkload reports whether the resource embeds a pod template we can inspect.

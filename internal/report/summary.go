@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/vignesh/unfurl/internal/model"
+	"github.com/vigneshakaviki/unfurl/internal/model"
 )
 
 // Item is one line in the DEPLOYS panel.

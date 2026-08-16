@@ -9,9 +9,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/vignesh/unfurl/internal/lint"
-	"github.com/vignesh/unfurl/internal/render"
-	"github.com/vignesh/unfurl/internal/report"
+	"github.com/vigneshakaviki/unfurl/internal/lint"
+	"github.com/vigneshakaviki/unfurl/internal/render"
+	"github.com/vigneshakaviki/unfurl/internal/report"
 )
 
 // version is overridden at build time with -ldflags "-X main.version=...".

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/vignesh/unfurl/internal/model"
+	"github.com/vigneshakaviki/unfurl/internal/model"
 )
 
 // Explain returns a plain-English, rule-based description of a workload/service
