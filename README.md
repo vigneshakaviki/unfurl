@@ -46,8 +46,8 @@ limits, on a single replica, pulling `:latest`.
 ## Install
 
 ```sh
-# Homebrew (planned)
-brew install unfurl
+# Homebrew
+brew install vigneshakaviki/tap/unfurl
 
 # Go
 go install github.com/vigneshakaviki/unfurl@latest
