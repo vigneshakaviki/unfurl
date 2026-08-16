@@ -58,6 +58,9 @@ changelog:
 # Users then: `brew install vigneshakaviki/tap/unfurl`.
 brews:
   - name: unfurl
+    # Skip the formula push automatically when no tap token is configured, so a
+    # release still publishes binaries. Set the secret to enable Homebrew.
+    disable: '{{ if .Env.HOMEBREW_TAP_TOKEN }}false{{ else }}true{{ end }}'
     repository:
       owner: vigneshakaviki
       name: homebrew-tap
