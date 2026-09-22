@@ -85,6 +85,19 @@ func (r Resource) Containers() []map[string]any {
 	return out
 }
 
+// ProbeContainers returns application containers and restartable init sidecars.
+// Ordinary init containers run to completion and cannot declare probes.
+func (r Resource) ProbeContainers() []map[string]any {
+	ps := r.PodTemplateSpec()
+	var out []map[string]any
+	for _, c := range toMaps(ps["initContainers"]) {
+		if c["restartPolicy"] == "Always" {
+			out = append(out, c)
+		}
+	}
+	return append(out, toMaps(ps["containers"])...)
+}
+
 func toMaps(v any) []map[string]any {
 	s, ok := v.([]any)
 	if !ok {
