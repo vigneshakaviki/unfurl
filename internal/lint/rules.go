@@ -116,7 +116,7 @@ var Rules = []Rule{
 				return nil
 			}
 			var out []string
-			for _, c := range r.Containers() {
+			for _, c := range r.ProbeContainers() {
 				if _, ok := c["readinessProbe"]; !ok {
 					out = append(out, fmt.Sprintf("container %q has no readiness probe", containerName(c)))
 				}
@@ -135,7 +135,7 @@ var Rules = []Rule{
 				return nil
 			}
 			var out []string
-			for _, c := range r.Containers() {
+			for _, c := range r.ProbeContainers() {
 				if _, ok := c["livenessProbe"]; !ok {
 					out = append(out, fmt.Sprintf("container %q has no liveness probe", containerName(c)))
 				}

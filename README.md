@@ -123,6 +123,15 @@ versions** (so an upgrade doesn't reject your manifests).
 See [`internal/lint/rules.go`](internal/lint/rules.go) for the full set — each rule
 is a self-contained value, so [adding one](CONTRIBUTING.md) is a tiny PR.
 
+Probe checks cover application containers and native sidecars (`initContainers`
+with `restartPolicy: Always`) in Deployments, StatefulSets, DaemonSets, and
+ReplicaSets. Ordinary init containers are excluded because Kubernetes does not
+allow readiness or liveness probes on them. Security, resource, and image checks
+still inspect all init containers. See the Kubernetes
+[init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)
+and [sidecar](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/)
+documentation.
+
 ## What unfurl is *not*
 
 - Not a Helm replacement — it renders *through* Helm/Kustomize, changing nothing.
